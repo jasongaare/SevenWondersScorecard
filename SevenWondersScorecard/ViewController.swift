@@ -25,6 +25,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         populatePlayerNames()
         refreshScores()
         
+        
+        
+        /* MAKE SURE TO UNREGISTER FROM THESE
+           EVENTS WHEN TRANSISTIONING FROM THIS
+           VIEW CONTROLLER
+        */
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+        
+        
+        
         // Made it!
         print("Successful Load")
     }
@@ -119,6 +132,76 @@ class ViewController: UIViewController, UITextFieldDelegate {
         p6Name.text = "Jackie"
         p7Name.text = "Marshall"
     }
+    
+    // MARK: Actions
+    @IBAction func scoreSwitchClicked(sender: UISwitch) {
+        
+        if !scoreSwitch.on {
+            
+            //when switch is turned off, clear scores
+            for ix in totalScoreArray {
+                ix.text = ""
+            }
+            scoreSwitch.setOn(false, animated:true)
+        }
+        else {
+            scoreSwitch.setOn(true, animated:true)
+            //when switch is turned on, calculate scores
+            refreshScores()
+
+        }
+    }
+    
+    @IBAction func clearButtonPressed(sender: UIButton) {
+        
+        // Pop up to confirm clear
+        let alert = UIAlertController(title: "Clear Scores", message: "Are you sure you want to clear all scores?", preferredStyle: UIAlertControllerStyle.Alert)
+   
+        // if they want to clear
+        let clearAction = UIAlertAction(title: "Clear", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            // function code for clear
+            for arr in self.scoresheet {
+                for ix in arr {
+                    if ix.frame.width == 45 {
+                        ix.text = ""
+                    }
+                }
+            }
+            self.refreshScores()
+        }
+        
+        // for cancel we won't do anything
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in }
+            
+            
+        alert.addAction(clearAction)
+        alert.addAction(cancelAction)
+        alert.preferredAction = clearAction
+        
+        presentViewController(alert, animated: true) { () -> Void in }
+        
+        
+    }
+    // MARK: Keyboard Notifications
+    
+    func keyboardDidShow(notification: NSNotification) {
+        if let activeField = self.activeField, keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+            self.mainScrollView.contentInset = contentInsets
+            self.mainScrollView.scrollIndicatorInsets = contentInsets
+            var aRect = self.view.frame
+            aRect.size.height -= keyboardSize.size.height
+            if (!CGRectContainsPoint(aRect, activeField.frame.origin)) {
+                self.mainScrollView.scrollRectToVisible(activeField.frame, animated: true)
+            }
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification) {
+        let contentInsets = UIEdgeInsetsZero
+        self.mainScrollView.contentInset = contentInsets
+        self.mainScrollView.scrollIndicatorInsets = contentInsets
+    }
 
     // MARK: UITextDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool
@@ -159,9 +242,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.activeField = nil
+        self.refreshScores()
+    }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.activeField = textField
+    }
+    
+    
+    // MARK: Calculate Scores
     
     func refreshScores() {
+        
+        // if they don't want the scores, then just return
+        if !scoreSwitch.on {
+            return
+        }
+        
         
         //Calculate player 1 score
         var p1score: Int = 0
@@ -349,7 +448,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
 
+    @IBOutlet weak var mainScrollView: UIScrollView!
+    @IBOutlet weak var scoreSwitch: UISwitch!
+    @IBOutlet weak var sciCalcButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
+
     
+    weak var activeField: UITextField?
     
     // All of the scoresheet
     var scoresheet = [[UITextField]]()

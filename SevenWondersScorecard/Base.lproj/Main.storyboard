@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -399,49 +398,65 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rKi-Vy-ao9">
-                                        <rect key="frame" x="20" y="263" width="51" height="31"/>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Automatic Score Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ul-PO-Tm0">
-                                        <rect key="frame" x="77" y="268" width="169" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjq-Jk-tKR">
+                                        <rect key="frame" x="391" y="264" width="109" height="30"/>
+                                        <state key="normal" title="Clear All Scores"/>
+                                        <connections>
+                                            <action selector="clearButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vBQ-J4-aAf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-O6-2h6">
+                                        <rect key="frame" x="20" y="264" width="181" height="30"/>
+                                        <state key="normal" title="Scientific Score Calculator"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Total Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ul-PO-Tm0">
+                                        <rect key="frame" x="285" y="269" width="90" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-O6-2h6">
-                                        <rect key="frame" x="319" y="264" width="181" height="30"/>
-                                        <state key="normal" title="Scientific Score Calculator"/>
-                                    </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rKi-Vy-ao9">
+                                        <rect key="frame" x="228" y="264" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="scoreSwitchClicked:" destination="BYZ-38-t0r" eventType="valueChanged" id="AD2-oD-h92"/>
+                                        </connections>
+                                    </switch>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="3ul-PO-Tm0" firstAttribute="leading" secondItem="rKi-Vy-ao9" secondAttribute="trailing" constant="8" id="2Yg-rv-vjF"/>
                                     <constraint firstItem="kRZ-dt-psL" firstAttribute="leading" secondItem="cMI-By-Q1w" secondAttribute="leading" constant="20" id="5K1-GL-gX3"/>
-                                    <constraint firstItem="q0g-O6-2h6" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" constant="8" id="5tZ-w0-8hu"/>
+                                    <constraint firstAttribute="bottom" secondItem="3ul-PO-Tm0" secondAttribute="bottom" constant="24" id="7t8-hw-KXB"/>
                                     <constraint firstAttribute="trailing" secondItem="kRZ-dt-psL" secondAttribute="trailing" constant="20" id="GWi-MV-dLW"/>
+                                    <constraint firstAttribute="bottom" secondItem="bjq-Jk-tKR" secondAttribute="bottom" constant="20" id="IPx-uO-DIy"/>
                                     <constraint firstItem="kRZ-dt-psL" firstAttribute="top" secondItem="cMI-By-Q1w" secondAttribute="top" constant="20" id="J8Z-hc-Dj2"/>
-                                    <constraint firstAttribute="trailing" secondItem="q0g-O6-2h6" secondAttribute="trailing" constant="20" id="L6J-Xz-Xgo"/>
-                                    <constraint firstItem="rKi-Vy-ao9" firstAttribute="leading" secondItem="cMI-By-Q1w" secondAttribute="leading" constant="20" id="QhM-hz-TGe"/>
-                                    <constraint firstItem="rKi-Vy-ao9" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" constant="8" id="Zzm-Y8-yFE"/>
-                                    <constraint firstItem="3ul-PO-Tm0" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" constant="13" id="alS-ct-hzP"/>
-                                    <constraint firstAttribute="bottom" secondItem="q0g-O6-2h6" secondAttribute="bottom" constant="20" id="fTQ-jE-7pH"/>
-                                    <constraint firstAttribute="bottom" secondItem="3ul-PO-Tm0" secondAttribute="bottom" constant="25" id="fVf-3j-0fU"/>
+                                    <constraint firstItem="rKi-Vy-ao9" firstAttribute="leading" secondItem="q0g-O6-2h6" secondAttribute="trailing" constant="27" id="MDc-et-d4p"/>
+                                    <constraint firstItem="bjq-Jk-tKR" firstAttribute="leading" secondItem="3ul-PO-Tm0" secondAttribute="trailing" constant="22" id="MIo-YX-ULd"/>
+                                    <constraint firstItem="bjq-Jk-tKR" firstAttribute="leading" secondItem="3ul-PO-Tm0" secondAttribute="trailing" constant="22" id="O4e-oh-KaI"/>
+                                    <constraint firstItem="3ul-PO-Tm0" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" constant="14" id="Ogi-2D-tQ3"/>
+                                    <constraint firstAttribute="bottom" secondItem="rKi-Vy-ao9" secondAttribute="bottom" constant="19" id="UDG-UA-IV9"/>
+                                    <constraint firstAttribute="trailing" secondItem="bjq-Jk-tKR" secondAttribute="trailing" constant="20" id="W8p-qt-89N"/>
+                                    <constraint firstAttribute="bottom" secondItem="q0g-O6-2h6" secondAttribute="bottom" constant="20" id="dh6-en-2Cw"/>
+                                    <constraint firstItem="bjq-Jk-tKR" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" constant="9" id="gyT-Hb-sP1"/>
+                                    <constraint firstItem="q0g-O6-2h6" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" constant="9" id="iAC-04-Ula"/>
+                                    <constraint firstItem="q0g-O6-2h6" firstAttribute="leading" secondItem="cMI-By-Q1w" secondAttribute="leading" constant="20" id="maq-9x-mpo"/>
                                     <constraint firstAttribute="bottom" secondItem="kRZ-dt-psL" secondAttribute="bottom" constant="59" id="v9f-pT-JMO"/>
-                                    <constraint firstAttribute="bottom" secondItem="rKi-Vy-ao9" secondAttribute="bottom" constant="20" id="xKQ-li-i8t"/>
+                                    <constraint firstItem="3ul-PO-Tm0" firstAttribute="leading" secondItem="rKi-Vy-ao9" secondAttribute="trailing" constant="8" id="vuR-Ok-c9l"/>
+                                    <constraint firstItem="rKi-Vy-ao9" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" constant="9" id="wQJ-2B-HFM"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="cMI-By-Q1w" secondAttribute="trailing" constant="27" id="6av-at-XeI"/>
-                            <constraint firstItem="cMI-By-Q1w" firstAttribute="top" secondItem="Pna-xO-IaA" secondAttribute="bottom" id="SZf-Ha-VF3"/>
-                            <constraint firstItem="cMI-By-Q1w" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dOq-LB-h4l"/>
+                            <constraint firstItem="cMI-By-Q1w" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7H3-Nj-kv8"/>
+                            <constraint firstItem="cMI-By-Q1w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ito-qe-ulN"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="clearButton" destination="bjq-Jk-tKR" id="xI1-vJ-k9T"/>
+                        <outlet property="mainScrollView" destination="cMI-By-Q1w" id="yX9-d9-4DC"/>
                         <outlet property="p1CivilScore" destination="TAH-qt-tKJ" id="1cs-B2-fzo"/>
                         <outlet property="p1CommScore" destination="cK4-f7-Ft6" id="evg-iG-dml"/>
                         <outlet property="p1GuildScore" destination="OVp-kn-Rto" id="G9p-q8-zIY"/>
@@ -506,6 +521,8 @@
                         <outlet property="p7TresScore" destination="Poc-xK-izt" id="M2k-9t-vop"/>
                         <outlet property="p7WonderScore" destination="DtM-s3-Whl" id="zcn-0k-MuD"/>
                         <outlet property="playerNameLabel" destination="7gb-8D-YHu" id="Sa8-HU-1OC"/>
+                        <outlet property="sciCalcButton" destination="q0g-O6-2h6" id="HfN-Ed-NAn"/>
+                        <outlet property="scoreSwitch" destination="rKi-Vy-ao9" id="vC5-bN-a0k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
