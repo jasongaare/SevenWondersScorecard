@@ -487,6 +487,7 @@
 				1B5C0A081BFF843800658B23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1B5C0A091BFF843800658B23 /* Build configuration list for PBXNativeTarget "SevenWondersScorecardTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +496,7 @@
 				1B5C0A0B1BFF843800658B23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1B5C0A0C1BFF843800658B23 /* Build configuration list for PBXNativeTarget "SevenWondersScorecardUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +505,7 @@
 				1B5C0A0E1BFF843800658B23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

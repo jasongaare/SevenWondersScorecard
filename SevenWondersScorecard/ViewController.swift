@@ -12,18 +12,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: Standard Fuctions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        
+        // Set Delegates
         setTextFieldDelegates()
-
+        
+        // Initialize final visual elements
         setBackgroundColors()
-        
         populatePlayerNames()
-        
         refreshScores()
         
+        // Made it!
         print("Successful Load")
     }
 
@@ -346,6 +348,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: Properties
+
     
     
     // All of the scoresheet
@@ -443,7 +446,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var p5Total: UITextField! {didSet {totalScoreArray.append(p5Total)}}
     @IBOutlet weak var p6Total: UITextField! {didSet {totalScoreArray.append(p6Total)}}
     @IBOutlet weak var p7Total: UITextField! {didSet {totalScoreArray.append(p7Total)}}
-    
     
     
 }
