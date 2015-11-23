@@ -36,70 +36,38 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 
     func setTextFieldDelegates() {
-        p1Name.delegate = self
-        p2Name.delegate = self
-        p3Name.delegate = self
-        p4Name.delegate = self
-        p5Name.delegate = self
-        p6Name.delegate = self
-        p7Name.delegate = self
         
-        p1MilScore.delegate = self
-        p2MilScore.delegate = self
-        p3MilScore.delegate = self
-        p4MilScore.delegate = self
-        p5MilScore.delegate = self
-        p6MilScore.delegate = self
-        p7MilScore.delegate = self
+        for ix in nameArray {
+            ix.delegate = self
+        }
         
-        p1TresScore.delegate = self
-        p2TresScore.delegate = self
-        p3TresScore.delegate = self
-        p4TresScore.delegate = self
-        p5TresScore.delegate = self
-        p6TresScore.delegate = self
-        p7TresScore.delegate = self
+        for ix in milScoreArray {
+            ix.delegate = self
+        }
+
+        for ix in tresScoreArray {
+            ix.delegate = self
+        }
+
+        for ix in wonderScoreArray {
+            ix.delegate = self
+        }
+
+        for ix in civilScoreArray {
+            ix.delegate = self
+        }
         
-        p1WonderScore.delegate = self
-        p2WonderScore.delegate = self
-        p3WonderScore.delegate = self
-        p4WonderScore.delegate = self
-        p5WonderScore.delegate = self
-        p6WonderScore.delegate = self
-        p7WonderScore.delegate = self
-        
-        p1CivilScore.delegate = self
-        p2CivilScore.delegate = self
-        p3CivilScore.delegate = self
-        p4CivilScore.delegate = self
-        p5CivilScore.delegate = self
-        p6CivilScore.delegate = self
-        p7CivilScore.delegate = self
-        
-        p1CommScore.delegate = self
-        p2CommScore.delegate = self
-        p3CommScore.delegate = self
-        p4CommScore.delegate = self
-        p5CommScore.delegate = self
-        p6CommScore.delegate = self
-        p7CommScore.delegate = self
-        
-        p1GuildScore.delegate = self
-        p2GuildScore.delegate = self
-        p3GuildScore.delegate = self
-        p4GuildScore.delegate = self
-        p5GuildScore.delegate = self
-        p6GuildScore.delegate = self
-        p7GuildScore.delegate = self
-        
-        p1SciScore.delegate = self
-        p2SciScore.delegate = self
-        p3SciScore.delegate = self
-        p4SciScore.delegate = self
-        p5SciScore.delegate = self
-        p6SciScore.delegate = self
-        p7SciScore.delegate = self
-        
+        for ix in commScoreArray {
+            ix.delegate = self
+        }
+
+        for ix in guildScoreArray {
+            ix.delegate = self
+        }
+
+        for ix in sciScoreArray {
+            ix.delegate = self
+        }
         
     }
     
@@ -112,57 +80,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let commBG = UIColor(red: 0.992, green: 0.51, blue: 0.055, alpha: 0.35)
         let guildBG = UIColor(red: 0.224, green: 0.067, blue: 0.365, alpha: 0.35)
         let sciBG = UIColor(red: 0.067, green: 0.435, blue: 0.149, alpha: 0.35)
-        
+ 
         //Set backgrounds
-        p1MilScore.backgroundColor = militaryBG
-        p2MilScore.backgroundColor = militaryBG
-        p3MilScore.backgroundColor = militaryBG
-        p4MilScore.backgroundColor = militaryBG
-        p5MilScore.backgroundColor = militaryBG
-        p6MilScore.backgroundColor = militaryBG
-        p7MilScore.backgroundColor = militaryBG
+        for ix in milScoreArray {
+            ix.backgroundColor = militaryBG
+        }
         
-        p1TresScore.backgroundColor = treasuryBG
-        p2TresScore.backgroundColor = treasuryBG
-        p3TresScore.backgroundColor = treasuryBG
-        p4TresScore.backgroundColor = treasuryBG
-        p5TresScore.backgroundColor = treasuryBG
-        p6TresScore.backgroundColor = treasuryBG
-        p7TresScore.backgroundColor = treasuryBG
+        for ix in tresScoreArray {
+            ix.backgroundColor = treasuryBG
+        }
         
-        p1CivilScore.backgroundColor = civilBG
-        p2CivilScore.backgroundColor = civilBG
-        p3CivilScore.backgroundColor = civilBG
-        p4CivilScore.backgroundColor = civilBG
-        p5CivilScore.backgroundColor = civilBG
-        p6CivilScore.backgroundColor = civilBG
-        p7CivilScore.backgroundColor = civilBG
-        
-        p1CommScore.backgroundColor = commBG
-        p2CommScore.backgroundColor = commBG
-        p3CommScore.backgroundColor = commBG
-        p4CommScore.backgroundColor = commBG
-        p5CommScore.backgroundColor = commBG
-        p6CommScore.backgroundColor = commBG
-        p7CommScore.backgroundColor = commBG
-        
-        p1GuildScore.backgroundColor = guildBG
-        p2GuildScore.backgroundColor = guildBG
-        p3GuildScore.backgroundColor = guildBG
-        p4GuildScore.backgroundColor = guildBG
-        p5GuildScore.backgroundColor = guildBG
-        p6GuildScore.backgroundColor = guildBG
-        p7GuildScore.backgroundColor = guildBG
-        
-        p1SciScore.backgroundColor = sciBG
-        p2SciScore.backgroundColor = sciBG
-        p3SciScore.backgroundColor = sciBG
-        p4SciScore.backgroundColor = sciBG
-        p5SciScore.backgroundColor = sciBG
-        p6SciScore.backgroundColor = sciBG
-        p7SciScore.backgroundColor = sciBG
-        
-        
+        for ix in civilScoreArray {
+            ix.backgroundColor = civilBG
+        }
+
+        for ix in commScoreArray {
+            ix.backgroundColor = commBG
+        }
+
+        for ix in guildScoreArray {
+            ix.backgroundColor = guildBG
+        }
+
+        for ix in sciScoreArray {
+            ix.backgroundColor = sciBG
+        }
+       
     }
     
     func populatePlayerNames() {
@@ -178,38 +121,40 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: UITextDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
+
+        // Check if any invalid (non-Integer) numbers/characters are present 
+        // (Except in nameField)
         
-        // Width of Int-only textFields are 35
-        if Int(textField.frame.width) == 35 {
-            
-            // If user input an Integer, things are a-okay
-            if let _ = Int(textField.text!) {
-                
-                // Hide the keyboard.
-                textField.resignFirstResponder()
-                
-                //Updates Scores
-                refreshScores()
-                
-                return true
-            }
-            else {
-                print("There's an issue")
-                
-                // Pop up to notify user of error
-                let alert = UIAlertController(title: "Invalid Score", message: "Score value must be an integer", preferredStyle: UIAlertControllerStyle.Alert)
-                let alertAction = UIAlertAction(title: "Enter score again", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in }
-                alert.addAction(alertAction)
-                presentViewController(alert, animated: true) { () -> Void in }
-                
-                return false
+        for arr in scoresheet {
+            for ix in arr {
+                // Scores to enter are 35 wide, but if it is empty we don't care to check it
+                if ix.frame.width == 35 && ix.text != "" {
+                    // If we can cast the text to an Integer, we are happy (do nothing)
+                    if let _ = Int(ix.text!) {
+                        //Do nothing
+                    }
+                    else {
+                        print("There's an issue")
+                        
+                        // Pop up to notify user of error
+                        let alert = UIAlertController(title: "Invalid Score", message: "Score values must be integers", preferredStyle: UIAlertControllerStyle.Alert)
+                        let alertAction = UIAlertAction(title: "Fix it", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in }
+                        alert.addAction(alertAction)
+                        presentViewController(alert, animated: true) { () -> Void in }
+                        
+                        return false
+                        
+                    }
+                }
             }
         }
-    
-        // If this is the player name, we are okay regardless
         
         // Hide the keyboard.
         textField.resignFirstResponder()
+        
+        //Updates Scores
+        refreshScores()
+        
         return true
     }
     
@@ -402,87 +347,104 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
     
+    
+    // All of the scoresheet
+    var scoresheet = [[UITextField]]()
+    
     // Player Name Column
     @IBOutlet weak var playerNameLabel: UILabel!
-    @IBOutlet weak var p1Name: UITextField!
-    @IBOutlet weak var p2Name: UITextField!
-    @IBOutlet weak var p3Name: UITextField!
-    @IBOutlet weak var p4Name: UITextField!
-    @IBOutlet weak var p5Name: UITextField!
-    @IBOutlet weak var p6Name: UITextField!
-    @IBOutlet weak var p7Name: UITextField!
+    
+    var nameArray = [UITextField]() {didSet {scoresheet.append(nameArray)}}
+    @IBOutlet weak var p1Name: UITextField! {didSet {nameArray.append(p1Name)}}
+    @IBOutlet weak var p2Name: UITextField! {didSet {nameArray.append(p2Name)}}
+    @IBOutlet weak var p3Name: UITextField! {didSet {nameArray.append(p3Name)}}
+    @IBOutlet weak var p4Name: UITextField! {didSet {nameArray.append(p4Name)}}
+    @IBOutlet weak var p5Name: UITextField! {didSet {nameArray.append(p5Name)}}
+    @IBOutlet weak var p6Name: UITextField! {didSet {nameArray.append(p6Name)}}
+    @IBOutlet weak var p7Name: UITextField! {didSet {nameArray.append(p7Name)}}
+    
     
     // Military Score Column
-    @IBOutlet weak var p1MilScore: UITextField!
-    @IBOutlet weak var p2MilScore: UITextField!
-    @IBOutlet weak var p3MilScore: UITextField!
-    @IBOutlet weak var p4MilScore: UITextField!
-    @IBOutlet weak var p5MilScore: UITextField!
-    @IBOutlet weak var p6MilScore: UITextField!
-    @IBOutlet weak var p7MilScore: UITextField!
+    var milScoreArray = [UITextField]()  {didSet {scoresheet.append(milScoreArray)}}
+    @IBOutlet weak var p1MilScore: UITextField! {didSet {milScoreArray.append(p1MilScore)}}
+    @IBOutlet weak var p2MilScore: UITextField! {didSet {milScoreArray.append(p2MilScore)}}
+    @IBOutlet weak var p3MilScore: UITextField! {didSet {milScoreArray.append(p3MilScore)}}
+    @IBOutlet weak var p4MilScore: UITextField! {didSet {milScoreArray.append(p4MilScore)}}
+    @IBOutlet weak var p5MilScore: UITextField! {didSet {milScoreArray.append(p5MilScore)}}
+    @IBOutlet weak var p6MilScore: UITextField! {didSet {milScoreArray.append(p6MilScore)}}
+    @IBOutlet weak var p7MilScore: UITextField! {didSet {milScoreArray.append(p7MilScore)}}
     
     //Treasury Score Column
-    @IBOutlet weak var p1TresScore: UITextField!
-    @IBOutlet weak var p2TresScore: UITextField!
-    @IBOutlet weak var p3TresScore: UITextField!
-    @IBOutlet weak var p4TresScore: UITextField!
-    @IBOutlet weak var p5TresScore: UITextField!
-    @IBOutlet weak var p6TresScore: UITextField!
-    @IBOutlet weak var p7TresScore: UITextField!
+    var tresScoreArray = [UITextField]()  {didSet {scoresheet.append(tresScoreArray)}}
+    @IBOutlet weak var p1TresScore: UITextField! {didSet {tresScoreArray.append(p1TresScore)}}
+    @IBOutlet weak var p2TresScore: UITextField! {didSet {tresScoreArray.append(p2TresScore)}}
+    @IBOutlet weak var p3TresScore: UITextField! {didSet {tresScoreArray.append(p3TresScore)}}
+    @IBOutlet weak var p4TresScore: UITextField! {didSet {tresScoreArray.append(p4TresScore)}}
+    @IBOutlet weak var p5TresScore: UITextField! {didSet {tresScoreArray.append(p5TresScore)}}
+    @IBOutlet weak var p6TresScore: UITextField! {didSet {tresScoreArray.append(p6TresScore)}}
+    @IBOutlet weak var p7TresScore: UITextField! {didSet {tresScoreArray.append(p7TresScore)}}
     
     // Wonder Score Column
-    @IBOutlet weak var p1WonderScore: UITextField!
-    @IBOutlet weak var p2WonderScore: UITextField!
-    @IBOutlet weak var p3WonderScore: UITextField!
-    @IBOutlet weak var p4WonderScore: UITextField!
-    @IBOutlet weak var p5WonderScore: UITextField!
-    @IBOutlet weak var p6WonderScore: UITextField!
-    @IBOutlet weak var p7WonderScore: UITextField!
+    var wonderScoreArray = [UITextField]()  {didSet {scoresheet.append(wonderScoreArray)}}
+    @IBOutlet weak var p1WonderScore: UITextField! {didSet {wonderScoreArray.append(p1WonderScore)}}
+    @IBOutlet weak var p2WonderScore: UITextField! {didSet {wonderScoreArray.append(p2WonderScore)}}
+    @IBOutlet weak var p3WonderScore: UITextField! {didSet {wonderScoreArray.append(p3WonderScore)}}
+    @IBOutlet weak var p4WonderScore: UITextField! {didSet {wonderScoreArray.append(p4WonderScore)}}
+    @IBOutlet weak var p5WonderScore: UITextField! {didSet {wonderScoreArray.append(p5WonderScore)}}
+    @IBOutlet weak var p6WonderScore: UITextField! {didSet {wonderScoreArray.append(p6WonderScore)}}
+    @IBOutlet weak var p7WonderScore: UITextField! {didSet {wonderScoreArray.append(p7WonderScore)}}
     
     // Civilian Score Column (Victory Points)
-    @IBOutlet weak var p1CivilScore: UITextField!
-    @IBOutlet weak var p2CivilScore: UITextField!
-    @IBOutlet weak var p3CivilScore: UITextField!
-    @IBOutlet weak var p4CivilScore: UITextField!
-    @IBOutlet weak var p5CivilScore: UITextField!
-    @IBOutlet weak var p6CivilScore: UITextField!
-    @IBOutlet weak var p7CivilScore: UITextField!
+    var civilScoreArray = [UITextField]()  {didSet {scoresheet.append(civilScoreArray)}}
+    @IBOutlet weak var p1CivilScore: UITextField! {didSet {civilScoreArray.append(p1CivilScore)}}
+    @IBOutlet weak var p2CivilScore: UITextField! {didSet {civilScoreArray.append(p2CivilScore)}}
+    @IBOutlet weak var p3CivilScore: UITextField! {didSet {civilScoreArray.append(p3CivilScore)}}
+    @IBOutlet weak var p4CivilScore: UITextField! {didSet {civilScoreArray.append(p4CivilScore)}}
+    @IBOutlet weak var p5CivilScore: UITextField! {didSet {civilScoreArray.append(p5CivilScore)}}
+    @IBOutlet weak var p6CivilScore: UITextField! {didSet {civilScoreArray.append(p6CivilScore)}}
+    @IBOutlet weak var p7CivilScore: UITextField! {didSet {civilScoreArray.append(p7CivilScore)}}
     
     // Commerical Score Column (Yellow Cards)
-    @IBOutlet weak var p1CommScore: UITextField!
-    @IBOutlet weak var p2CommScore: UITextField!
-    @IBOutlet weak var p3CommScore: UITextField!
-    @IBOutlet weak var p4CommScore: UITextField!
-    @IBOutlet weak var p5CommScore: UITextField!
-    @IBOutlet weak var p6CommScore: UITextField!
-    @IBOutlet weak var p7CommScore: UITextField!
+    var commScoreArray = [UITextField]() {didSet {scoresheet.append(commScoreArray)}}
+    @IBOutlet weak var p1CommScore: UITextField! {didSet {commScoreArray.append(p1CommScore)}}
+    @IBOutlet weak var p2CommScore: UITextField! {didSet {commScoreArray.append(p2CommScore)}}
+    @IBOutlet weak var p3CommScore: UITextField! {didSet {commScoreArray.append(p3CommScore)}}
+    @IBOutlet weak var p4CommScore: UITextField! {didSet {commScoreArray.append(p4CommScore)}}
+    @IBOutlet weak var p5CommScore: UITextField! {didSet {commScoreArray.append(p5CommScore)}}
+    @IBOutlet weak var p6CommScore: UITextField! {didSet {commScoreArray.append(p6CommScore)}}
+    @IBOutlet weak var p7CommScore: UITextField! {didSet {commScoreArray.append(p7CommScore)}}
     
     // Guild Score Column
-    @IBOutlet weak var p1GuildScore: UITextField!
-    @IBOutlet weak var p2GuildScore: UITextField!
-    @IBOutlet weak var p3GuildScore: UITextField!
-    @IBOutlet weak var p4GuildScore: UITextField!
-    @IBOutlet weak var p5GuildScore: UITextField!
-    @IBOutlet weak var p6GuildScore: UITextField!
-    @IBOutlet weak var p7GuildScore: UITextField!
+    var guildScoreArray = [UITextField]()  {didSet {scoresheet.append(guildScoreArray)}}
+    @IBOutlet weak var p1GuildScore: UITextField! {didSet {guildScoreArray.append(p1GuildScore)}}
+    @IBOutlet weak var p2GuildScore: UITextField! {didSet {guildScoreArray.append(p2GuildScore)}}
+    @IBOutlet weak var p3GuildScore: UITextField! {didSet {guildScoreArray.append(p3GuildScore)}}
+    @IBOutlet weak var p4GuildScore: UITextField! {didSet {guildScoreArray.append(p4GuildScore)}}
+    @IBOutlet weak var p5GuildScore: UITextField! {didSet {guildScoreArray.append(p5GuildScore)}}
+    @IBOutlet weak var p6GuildScore: UITextField! {didSet {guildScoreArray.append(p6GuildScore)}}
+    @IBOutlet weak var p7GuildScore: UITextField! {didSet {guildScoreArray.append(p7GuildScore)}}
     
     // Science Score Column
-    @IBOutlet weak var p1SciScore: UITextField!
-    @IBOutlet weak var p2SciScore: UITextField!
-    @IBOutlet weak var p3SciScore: UITextField!
-    @IBOutlet weak var p4SciScore: UITextField!
-    @IBOutlet weak var p5SciScore: UITextField!
-    @IBOutlet weak var p6SciScore: UITextField!
-    @IBOutlet weak var p7SciScore: UITextField!
+    var sciScoreArray = [UITextField]() {didSet {scoresheet.append(sciScoreArray)}}
+    @IBOutlet weak var p1SciScore: UITextField! {didSet {sciScoreArray.append(p1SciScore)}}
+    @IBOutlet weak var p2SciScore: UITextField! {didSet {sciScoreArray.append(p2SciScore)}}
+    @IBOutlet weak var p3SciScore: UITextField! {didSet {sciScoreArray.append(p3SciScore)}}
+    @IBOutlet weak var p4SciScore: UITextField! {didSet {sciScoreArray.append(p4SciScore)}}
+    @IBOutlet weak var p5SciScore: UITextField! {didSet {sciScoreArray.append(p5SciScore)}}
+    @IBOutlet weak var p6SciScore: UITextField! {didSet {sciScoreArray.append(p6SciScore)}}
+    @IBOutlet weak var p7SciScore: UITextField! {didSet {sciScoreArray.append(p7SciScore)}}
     
     // Total Score Column
-    @IBOutlet weak var p1Total: UITextField!
-    @IBOutlet weak var p2Total: UITextField!
-    @IBOutlet weak var p3Total: UITextField!
-    @IBOutlet weak var p4Total: UITextField!
-    @IBOutlet weak var p5Total: UITextField!
-    @IBOutlet weak var p6Total: UITextField!
-    @IBOutlet weak var p7Total: UITextField!
+    var totalScoreArray = [UITextField]()  {didSet {scoresheet.append(totalScoreArray)}}
+    @IBOutlet weak var p1Total: UITextField! {didSet {totalScoreArray.append(p1Total)}}
+    @IBOutlet weak var p2Total: UITextField! {didSet {totalScoreArray.append(p2Total)}}
+    @IBOutlet weak var p3Total: UITextField! {didSet {totalScoreArray.append(p3Total)}}
+    @IBOutlet weak var p4Total: UITextField! {didSet {totalScoreArray.append(p4Total)}}
+    @IBOutlet weak var p5Total: UITextField! {didSet {totalScoreArray.append(p5Total)}}
+    @IBOutlet weak var p6Total: UITextField! {didSet {totalScoreArray.append(p6Total)}}
+    @IBOutlet weak var p7Total: UITextField! {didSet {totalScoreArray.append(p7Total)}}
+    
+    
     
 }
 
