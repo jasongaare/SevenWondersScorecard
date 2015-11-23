@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
+    // MARK: Constants
+    let scoresToAddWidth = 45
     
     // MARK: Standard Fuctions
     
@@ -162,7 +164,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // function code for clear
             for arr in self.scoresheet {
                 for ix in arr {
-                    if ix.frame.width == 45 {
+                    if Int(ix.frame.width) == self.scoresToAddWidth {
                         ix.text = ""
                     }
                 }
@@ -212,8 +214,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         for arr in scoresheet {
             for ix in arr {
-                // Scores to enter are 35 wide, but if it is empty we don't care to check it
-                if ix.frame.width == 35 && ix.text != "" {
+                // Scores to enter are 45 wide, but if it is empty we don't care to check it
+                if Int(ix.frame.width) == self.scoresToAddWidth && ix.text != "" {
                     // If we can cast the text to an Integer, we are happy (do nothing)
                     if let _ = Int(ix.text!) {
                         //Do nothing
