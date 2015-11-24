@@ -254,6 +254,49 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    // MARK: Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        let sciCalcView = segue.destinationViewController as! ScienceCalcViewController
+        sciCalcView.self.nameArrayFromScorecard = self.nameArray
+        
+        
+    }
+    
+    @IBAction func unwindScoreboard(sender: UIStoryboardSegue) {
+        
+        // if we can be sure the sending view is a SciCalc then...
+        if let sourceViewController = sender.sourceViewController as? ScienceCalcViewController {
+            // find the player and place the calculated score in their scorebox
+            switch sourceViewController.self.currentlySelected {
+            case 0:
+                p1SciScore.text = sourceViewController.calculatedScore.text
+            case 1:
+                p2SciScore.text = sourceViewController.calculatedScore.text
+            case 2:
+                p3SciScore.text = sourceViewController.calculatedScore.text
+            case 3:
+                p4SciScore.text = sourceViewController.calculatedScore.text
+            case 4:
+                p5SciScore.text = sourceViewController.calculatedScore.text
+            case 5:
+                p6SciScore.text = sourceViewController.calculatedScore.text
+            case 6:
+                p7SciScore.text = sourceViewController.calculatedScore.text
+
+            default: break //should NEVER reach this
+            }
+            
+        }
+        
+        refreshScores()
+        
+    }
+    
     // MARK: Calculate Scores
     
     func refreshScores() {
@@ -454,7 +497,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scoreSwitch: UISwitch!
     @IBOutlet weak var sciCalcButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
-
+    
     
     weak var activeField: UITextField?
     

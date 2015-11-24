@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScienceCalcViewController: UIViewController, UIPickerViewDelegate {
+class ScienceCalcViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: Properties
     
@@ -17,12 +17,21 @@ class ScienceCalcViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var compassSegment: UISegmentedControl!
     @IBOutlet weak var calculatedScore: UITextField!
     @IBOutlet weak var namePicker: UIPickerView!
+    @IBOutlet weak var assignScore: UIButton!
+    @IBOutlet weak var returnButton: UIButton!
     
+    var pickerData : [String] = [String]()
+    var currentlySelected = 0
     
+    // Initialized in segue from ViewController
+    var nameArrayFromScorecard : [UITextField] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.namePicker.delegate = self
+        self.namePicker.dataSource = self
+        
         calcScore()
         populateNamePicker()
         
@@ -40,7 +49,10 @@ class ScienceCalcViewController: UIViewController, UIPickerViewDelegate {
         calcScore()
     }
     
-    
+    @IBAction func returnButtonClicked(sender: UIButton) {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     
     // MARK: Calculations
@@ -73,21 +85,49 @@ class ScienceCalcViewController: UIViewController, UIPickerViewDelegate {
         calculatedScore.text = "\(score)"
     }
     
+    
+    // MARK: Picker Things
+    
     func populateNamePicker() {
         
-        self.namePicker.
-        
+        for ix in nameArrayFromScorecard {
+            pickerData.append(ix.text!)
+        }
     }
     
     
-    /*
-    // MARK: - Navigation
+    // The number of columns of data
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    // Catpure the picker view selection
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // This method is triggered whenever the user makes a change to the picker selection.
+        // The parameter named row and component represents what was selected.
+        self.currentlySelected = row
+    }
+    
+    
+    
+    // MARK: Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
     }
-    */
+    
 
 }
