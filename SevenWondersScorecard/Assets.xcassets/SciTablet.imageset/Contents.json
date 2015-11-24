@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Treasury-2.jpg",
+      "filename" : "SciTabletSMALL.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Treasury.jpg",
+      "filename" : "SciTabletSMALL-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Treasury-1.jpg",
+      "filename" : "SciTablet.png",
       "scale" : "3x"
     }
   ],

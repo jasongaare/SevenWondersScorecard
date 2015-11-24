@@ -14,6 +14,7 @@
 		1B5C09EC1BFF843800658B23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B5C09EA1BFF843800658B23 /* LaunchScreen.storyboard */; };
 		1B5C09F71BFF843800658B23 /* SevenWondersScorecardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C09F61BFF843800658B23 /* SevenWondersScorecardTests.swift */; };
 		1B5C0A021BFF843800658B23 /* SevenWondersScorecardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C0A011BFF843800658B23 /* SevenWondersScorecardUITests.swift */; };
+		1B9A45AB1C03DA9D00AFA18F /* ScienceCalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9A45AA1C03DA9D00AFA18F /* ScienceCalcViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		1B5C09FD1BFF843800658B23 /* SevenWondersScorecardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SevenWondersScorecardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B5C0A011BFF843800658B23 /* SevenWondersScorecardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenWondersScorecardUITests.swift; sourceTree = "<group>"; };
 		1B5C0A031BFF843800658B23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B9A45AA1C03DA9D00AFA18F /* ScienceCalcViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceCalcViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				1B5C09E11BFF843800658B23 /* AppDelegate.swift */,
 				1B5C09E31BFF843800658B23 /* ViewController.swift */,
+				1B9A45AA1C03DA9D00AFA18F /* ScienceCalcViewController.swift */,
 				1B5C09E51BFF843800658B23 /* Main.storyboard */,
 				1B5C09E81BFF843800658B23 /* Assets.xcassets */,
 				1B5C09EA1BFF843800658B23 /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 			files = (
 				1B5C09E41BFF843800658B23 /* ViewController.swift in Sources */,
 				1B5C09E21BFF843800658B23 /* AppDelegate.swift in Sources */,
+				1B9A45AB1C03DA9D00AFA18F /* ScienceCalcViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

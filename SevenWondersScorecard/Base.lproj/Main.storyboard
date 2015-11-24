@@ -408,6 +408,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-O6-2h6">
                                         <rect key="frame" x="20" y="264" width="181" height="30"/>
                                         <state key="normal" title="Scientific Score Calculator"/>
+                                        <connections>
+                                            <segue destination="0kQ-wV-Sdd" kind="show" id="KfC-QF-T7h"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Total Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ul-PO-Tm0">
                                         <rect key="frame" x="285" y="269" width="90" height="21"/>
@@ -529,14 +532,200 @@
             </objects>
             <point key="canvasLocation" x="418" y="150"/>
         </scene>
+        <!--Science Calc View Controller-->
+        <scene sceneID="SvF-fC-5BG">
+            <objects>
+                <viewController id="0kQ-wV-Sdd" customClass="ScienceCalcViewController" customModule="SevenWondersScorecard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SKO-e0-vo8"/>
+                        <viewControllerLayoutGuide type="bottom" id="DXb-z9-lW9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u55-Py-WwM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tof-vq-xpO">
+                                <rect key="frame" x="309" y="66" width="230" height="29"/>
+                                <segments>
+                                    <segment title="0"/>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="0kQ-wV-Sdd" eventType="valueChanged" id="wrD-b2-bIz"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BcF-Kr-t9t">
+                                <rect key="frame" x="309" y="107" width="230" height="29"/>
+                                <segments>
+                                    <segment title="0"/>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="0kQ-wV-Sdd" eventType="valueChanged" id="YaV-v2-es6"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O8n-eL-u7p">
+                                <rect key="frame" x="309" y="148" width="230" height="29"/>
+                                <segments>
+                                    <segment title="0"/>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="0kQ-wV-Sdd" eventType="valueChanged" id="WoN-Xy-kUA"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Number of " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sag-vs-XhE">
+                                <rect key="frame" x="69" y="69" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Number of " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esk-5r-zaK">
+                                <rect key="frame" x="69" y="110" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Number of " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HU8-ZJ-IQy">
+                                <rect key="frame" x="69" y="151" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="SciWheel" translatesAutoresizingMaskIntoConstraints="NO" id="eK5-dl-aMX">
+                                <rect key="frame" x="175" y="62" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="iUn-Kr-vNU"/>
+                                    <constraint firstAttribute="height" constant="35" id="rMU-sy-GI5"/>
+                                </constraints>
+                            </imageView>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="SciCompass" translatesAutoresizingMaskIntoConstraints="NO" id="aKV-om-zsu">
+                                <rect key="frame" x="175" y="144" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="c9L-JQ-OzQ"/>
+                                    <constraint firstAttribute="width" constant="35" id="ptE-dP-LZH"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="SciTablet" translatesAutoresizingMaskIntoConstraints="NO" id="ZE0-tl-BMu">
+                                <rect key="frame" x="175" y="103" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="XJv-vh-Bbo"/>
+                                    <constraint firstAttribute="height" constant="35" id="oW7-q2-XzJ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Cards  =" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbg-WC-CxQ">
+                                <rect key="frame" x="227" y="110" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Cards  =" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALj-gh-nmc">
+                                <rect key="frame" x="227" y="151" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Cards  =" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nen-6h-WgY">
+                                <rect key="frame" x="227" y="69" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Scientific Score Calculator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TL6-yP-Kmj">
+                                <rect key="frame" x="188" y="28" width="225" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" Calculated Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgh-CB-lKL">
+                                <rect key="frame" x="69" y="189" width="146" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uXK-Nt-1WV">
+                                <rect key="frame" x="237" y="189" width="55" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D1h-jY-5DG">
+                                <rect key="frame" x="309" y="189" width="230" height="105"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t11-EP-K5S">
+                                <rect key="frame" x="69" y="227" width="223" height="30"/>
+                                <state key="normal" title="Assign Score to Player:"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BcF-Kr-t9t" firstAttribute="top" secondItem="Tof-vq-xpO" secondAttribute="bottom" constant="13" id="0E8-eb-MgI"/>
+                            <constraint firstItem="HU8-ZJ-IQy" firstAttribute="top" secondItem="esk-5r-zaK" secondAttribute="bottom" constant="20" id="2Uq-d2-XH3"/>
+                            <constraint firstItem="ALj-gh-nmc" firstAttribute="top" secondItem="bbg-WC-CxQ" secondAttribute="bottom" constant="20" id="6QQ-kh-bLa"/>
+                            <constraint firstItem="BcF-Kr-t9t" firstAttribute="leading" secondItem="bbg-WC-CxQ" secondAttribute="trailing" constant="17" id="9xw-Jd-zb9"/>
+                            <constraint firstItem="bbg-WC-CxQ" firstAttribute="top" secondItem="Nen-6h-WgY" secondAttribute="bottom" constant="20" id="AUC-KX-bzJ"/>
+                            <constraint firstItem="eK5-dl-aMX" firstAttribute="leading" secondItem="Sag-vs-XhE" secondAttribute="trailing" constant="15" id="BsG-Wz-cyl"/>
+                            <constraint firstItem="ALj-gh-nmc" firstAttribute="top" secondItem="bbg-WC-CxQ" secondAttribute="bottom" constant="20" id="FhU-ub-jAD"/>
+                            <constraint firstItem="ALj-gh-nmc" firstAttribute="leading" secondItem="aKV-om-zsu" secondAttribute="trailing" constant="17" id="GSH-CN-VGI"/>
+                            <constraint firstItem="aKV-om-zsu" firstAttribute="leading" secondItem="HU8-ZJ-IQy" secondAttribute="trailing" constant="15" id="Gn1-eO-fwE"/>
+                            <constraint firstItem="aKV-om-zsu" firstAttribute="top" secondItem="ZE0-tl-BMu" secondAttribute="bottom" constant="6" id="KiW-Wf-rRZ"/>
+                            <constraint firstItem="BcF-Kr-t9t" firstAttribute="leading" secondItem="bbg-WC-CxQ" secondAttribute="trailing" constant="17" id="M2d-Z6-r9B"/>
+                            <constraint firstItem="ZE0-tl-BMu" firstAttribute="leading" secondItem="esk-5r-zaK" secondAttribute="trailing" constant="17" id="PHt-fy-JJP"/>
+                            <constraint firstItem="BcF-Kr-t9t" firstAttribute="top" secondItem="Tof-vq-xpO" secondAttribute="bottom" constant="13" id="SeS-iF-3dr"/>
+                            <constraint firstItem="ZE0-tl-BMu" firstAttribute="leading" secondItem="esk-5r-zaK" secondAttribute="trailing" constant="15" id="SvA-iR-k61"/>
+                            <constraint firstItem="O8n-eL-u7p" firstAttribute="leading" secondItem="ALj-gh-nmc" secondAttribute="trailing" constant="17" id="Wts-KC-Xin"/>
+                            <constraint firstItem="bbg-WC-CxQ" firstAttribute="leading" secondItem="ZE0-tl-BMu" secondAttribute="trailing" constant="17" id="YvN-Aa-FFa"/>
+                            <constraint firstItem="Tof-vq-xpO" firstAttribute="leading" secondItem="Nen-6h-WgY" secondAttribute="trailing" constant="17" id="ZE2-gT-9MW"/>
+                            <constraint firstItem="ALj-gh-nmc" firstAttribute="leading" secondItem="aKV-om-zsu" secondAttribute="trailing" constant="17" id="a2d-tm-NVp"/>
+                            <constraint firstItem="ZE0-tl-BMu" firstAttribute="top" secondItem="eK5-dl-aMX" secondAttribute="bottom" constant="6" id="c9a-he-Fo0"/>
+                            <constraint firstItem="bbg-WC-CxQ" firstAttribute="leading" secondItem="ZE0-tl-BMu" secondAttribute="trailing" constant="17" id="eF9-kP-g2L"/>
+                            <constraint firstItem="aKV-om-zsu" firstAttribute="top" secondItem="ZE0-tl-BMu" secondAttribute="bottom" constant="6" id="fRk-vt-vR9"/>
+                            <constraint firstItem="Nen-6h-WgY" firstAttribute="leading" secondItem="eK5-dl-aMX" secondAttribute="trailing" constant="17" id="gfn-bh-ZJH"/>
+                            <constraint firstItem="O8n-eL-u7p" firstAttribute="top" secondItem="BcF-Kr-t9t" secondAttribute="bottom" constant="13" id="i96-hl-EPD"/>
+                            <constraint firstItem="ZE0-tl-BMu" firstAttribute="top" secondItem="eK5-dl-aMX" secondAttribute="bottom" constant="6" id="k2s-OW-Ahx"/>
+                            <constraint firstItem="Tof-vq-xpO" firstAttribute="top" secondItem="TL6-yP-Kmj" secondAttribute="bottom" constant="17" id="l40-pw-af3"/>
+                            <constraint firstItem="aKV-om-zsu" firstAttribute="top" secondItem="ZE0-tl-BMu" secondAttribute="bottom" constant="6" id="lNx-pq-arc"/>
+                            <constraint firstItem="Nen-6h-WgY" firstAttribute="top" secondItem="TL6-yP-Kmj" secondAttribute="bottom" constant="20" id="lrw-Nt-ljP"/>
+                            <constraint firstItem="Tof-vq-xpO" firstAttribute="leading" secondItem="Nen-6h-WgY" secondAttribute="trailing" constant="17" id="mDc-35-ScH"/>
+                            <constraint firstItem="O8n-eL-u7p" firstAttribute="leading" secondItem="ALj-gh-nmc" secondAttribute="trailing" constant="17" id="mdp-QF-PJp"/>
+                            <constraint firstItem="aKV-om-zsu" firstAttribute="leading" secondItem="HU8-ZJ-IQy" secondAttribute="trailing" constant="17" id="nFC-1z-1tR"/>
+                            <constraint firstItem="bbg-WC-CxQ" firstAttribute="top" secondItem="Nen-6h-WgY" secondAttribute="bottom" constant="20" id="tgr-H0-aQw"/>
+                            <constraint firstItem="O8n-eL-u7p" firstAttribute="top" secondItem="BcF-Kr-t9t" secondAttribute="bottom" constant="13" id="vqm-PN-a0t"/>
+                            <constraint firstItem="Nen-6h-WgY" firstAttribute="leading" secondItem="eK5-dl-aMX" secondAttribute="trailing" constant="17" id="x4X-R8-SCi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calculatedScore" destination="uXK-Nt-1WV" id="9Zh-aN-GcK"/>
+                        <outlet property="compassSegment" destination="O8n-eL-u7p" id="qul-Gg-S9y"/>
+                        <outlet property="namePicker" destination="D1h-jY-5DG" id="0BY-QT-if9"/>
+                        <outlet property="tabletSegment" destination="BcF-Kr-t9t" id="BJy-gH-hCQ"/>
+                        <outlet property="wheelSegment" destination="Tof-vq-xpO" id="pic-pj-U0S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9zX-Jm-9mo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1134" y="150"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="CivilianIcon" width="112" height="112"/>
-        <image name="CommercialIcon" width="112" height="112"/>
-        <image name="GuildIcon" width="112" height="112"/>
-        <image name="MilitaryIcon" width="112" height="112"/>
-        <image name="ScienceIcon" width="112" height="112"/>
-        <image name="TreasuryIcon" width="180" height="180"/>
-        <image name="WonderIcon" width="112" height="112"/>
+        <image name="CivilianIcon" width="225" height="225"/>
+        <image name="CommercialIcon" width="225" height="225"/>
+        <image name="GuildIcon" width="225" height="225"/>
+        <image name="MilitaryIcon" width="225" height="225"/>
+        <image name="SciCompass" width="90" height="90"/>
+        <image name="SciTablet" width="180" height="180"/>
+        <image name="SciWheel" width="180" height="180"/>
+        <image name="ScienceIcon" width="225" height="225"/>
+        <image name="TreasuryIcon" width="360" height="360"/>
+        <image name="WonderIcon" width="225" height="225"/>
     </resources>
 </document>
