@@ -728,7 +728,7 @@
                                         <rect key="frame" x="311" y="263" width="189" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Scientific Score Calculator">
-                                            <color key="titleColor" red="0.0" green="0.67843137254901964" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.80183912088114162" green="0.92797111742424243" blue="0.92797111742424243" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="0kQ-wV-Sdd" kind="show" id="KfC-QF-T7h"/>
@@ -738,7 +738,7 @@
                                         <rect key="frame" x="20" y="263" width="109" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Clear All Scores">
-                                            <color key="titleColor" red="0.0" green="0.67843137254901964" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.80183912089999998" green="0.92797111740000005" blue="0.92797111740000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -760,7 +760,7 @@
                                         </connections>
                                     </switch>
                                 </subviews>
-                                <color key="backgroundColor" red="0.89309875589999999" green="0.7671529882" blue="0.34988429539999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="rKi-Vy-ao9" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" id="2yV-u4-yKB"/>
                                     <constraint firstItem="EHb-gw-dse" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" id="3gb-DM-t5i"/>
@@ -786,7 +786,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.89309875589999999" green="0.7671529882" blue="0.34988429539999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="cMI-By-Q1w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CPv-y2-Jx8"/>
