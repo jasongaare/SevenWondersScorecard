@@ -11,37 +11,15 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Constants
-    let scoresToAddWidth = 45
+    var scoresToAddWidth : Int = 0
     
     // MARK: Standard Fuctions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        switch UIDevice().type {
-        case .iPhone4:
-            fallthrough
-        case .iPhone5:
-            print("No TouchID sensor")
-        case .iPhone5S:
-            fallthrough
-        case .iPhone6:
-            fallthrough
-        case .iPhone6plus:
-            fallthrough
-        case .iPhone6S:
-            fallthrough
-        case .iPhone6Splus:
-            print("Put your thumb on the " +
-                UIDevice().type.rawValue + " sensor thingy")
-        default:
-            print("I am not equipped to handle this device")
-        }
-        
-        // We are old school and hard code the text field sizes
-        correctLayoutSize()
-        
+
+        // Once the view loads, we know how wide our frames are for scoring
+        scoresToAddWidth = Int(p1MilScore.frame.width)
         
         // Set Delegates
         setTextFieldDelegates()
@@ -591,13 +569,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var playerNameLabel: UILabel!
     
     var nameArray = [UITextField]() {didSet {scoresheet.append(nameArray)}}
-    @IBOutlet weak var p1Name: UITextField! {didSet {nameArray.append(p1Name)}}
-    @IBOutlet weak var p2Name: UITextField! {didSet {nameArray.append(p2Name)}}
-    @IBOutlet weak var p3Name: UITextField! {didSet {nameArray.append(p3Name)}}
-    @IBOutlet weak var p4Name: UITextField! {didSet {nameArray.append(p4Name)}}
-    @IBOutlet weak var p5Name: UITextField! {didSet {nameArray.append(p5Name)}}
-    @IBOutlet weak var p6Name: UITextField! {didSet {nameArray.append(p6Name)}}
-    @IBOutlet weak var p7Name: UITextField! {didSet {nameArray.append(p7Name)}}
+    @IBOutlet weak var p1Name: UITextField! {didSet {nameArray.append(p1Name); p1Name.tag = 1}}
+    @IBOutlet weak var p2Name: UITextField! {didSet {nameArray.append(p2Name); p2Name.tag = 2}}
+    @IBOutlet weak var p3Name: UITextField! {didSet {nameArray.append(p3Name); p3Name.tag = 3}}
+    @IBOutlet weak var p4Name: UITextField! {didSet {nameArray.append(p4Name); p4Name.tag = 4}}
+    @IBOutlet weak var p5Name: UITextField! {didSet {nameArray.append(p5Name); p5Name.tag = 5}}
+    @IBOutlet weak var p6Name: UITextField! {didSet {nameArray.append(p6Name); p6Name.tag = 6}}
+    @IBOutlet weak var p7Name: UITextField! {didSet {nameArray.append(p7Name); p7Name.tag = 7}}
     
     
     // Military Score Column
@@ -681,105 +659,4 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var p7Total: UITextField! {didSet {totalScoreArray.append(p7Total)}}
     
     
-}
-
-
-
-
-// 1. Declare outside class definition (or in its own file).
-// 2. UIKit must be included in file where this code is added.
-// 3. Extends UIDevice class, thus is available anywhere in app.
-//
-// Usage example:
-//
-//    if UIDevice().type == .simulator {
-//       print("You're running on the simulator... boring!")
-//    } else {
-//       print("Wow! Running on a \(UIDevice().type.rawValue)")
-//    }
-
-public enum Model : String {
-    case simulator = "simulator/sandbox",
-    iPod1          = "iPod 1",
-    iPod2          = "iPod 2",
-    iPod3          = "iPod 3",
-    iPod4          = "iPod 4",
-    iPod5          = "iPod 5",
-    iPad2          = "iPad 2",
-    iPad3          = "iPad 3",
-    iPad4          = "iPad 4",
-    iPhone4        = "iPhone 4",
-    iPhone4S       = "iPhone 4S",
-    iPhone5        = "iPhone 5",
-    iPhone5S       = "iPhone 5S",
-    iPhone5C       = "iPhone 5C",
-    iPadMini1      = "iPad Mini 1",
-    iPadMini2      = "iPad Mini 2",
-    iPadMini3      = "iPad Mini 3",
-    iPadAir1       = "iPad Air 1",
-    iPadAir2       = "iPad Air 2",
-    iPhone6        = "iPhone 6",
-    iPhone6plus    = "iPhone 6 Plus",
-    iPhone6S       = "iPhone 6S",
-    iPhone6Splus   = "iPhone 6S Plus",
-    unrecognized   = "?unrecognized?"
-}
-
-public extension UIDevice {
-    public var type: Model {
-        var systemInfo = utsname()
-        uname(&systemInfo)
-        let modelCode = withUnsafeMutablePointer(&systemInfo.machine) {
-            ptr in String.fromCString(UnsafePointer<CChar>(ptr))
-        }
-        var modelMap : [ String : Model ] = [
-            "i386"      : .simulator,
-            "x86_64"    : .simulator,
-            "iPod1,1"   : .iPod1,
-            "iPod2,1"   : .iPod2,
-            "iPod3,1"   : .iPod3,
-            "iPod4,1"   : .iPod4,
-            "iPod5,1"   : .iPod5,
-            "iPad2,1"   : .iPad2,
-            "iPad2,2"   : .iPad2,
-            "iPad2,3"   : .iPad2,
-            "iPad2,4"   : .iPad2,
-            "iPad2,5"   : .iPadMini1,
-            "iPad2,6"   : .iPadMini1,
-            "iPad2,7"   : .iPadMini1,
-            "iPhone3,1" : .iPhone4,
-            "iPhone3,2" : .iPhone4,
-            "iPhone3,3" : .iPhone4,
-            "iPhone4,1" : .iPhone4S,
-            "iPhone5,1" : .iPhone5,
-            "iPhone5,2" : .iPhone5,
-            "iPhone5,3" : .iPhone5C,
-            "iPhone5,4" : .iPhone5C,
-            "iPad3,1"   : .iPad3,
-            "iPad3,2"   : .iPad3,
-            "iPad3,3"   : .iPad3,
-            "iPad3,4"   : .iPad4,
-            "iPad3,5"   : .iPad4,
-            "iPad3,6"   : .iPad4,
-            "iPhone6,1" : .iPhone5S,
-            "iPhone6,2" : .iPhone5S,
-            "iPad4,1"   : .iPadAir1,
-            "iPad4,2"   : .iPadAir2,
-            "iPad4,4"   : .iPadMini2,
-            "iPad4,5"   : .iPadMini2,
-            "iPad4,6"   : .iPadMini2,
-            "iPad4,7"   : .iPadMini3,
-            "iPad4,8"   : .iPadMini3,
-            "iPad4,9"   : .iPadMini3,
-            "iPhone7,1" : .iPhone6plus,
-            "iPhone7,2" : .iPhone6,
-            "iPhone8,1" : .iPhone6S,
-            "iPhone8,2" : .iPhone6Splus
-        ]
-        
-        if let model = modelMap[String.fromCString(modelCode!)!] {
-            return model
-        }
-        return Model.unrecognized
-    }
 }

@@ -91,7 +91,14 @@ class ScienceCalcViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func populateNamePicker() {
         
         for ix in nameArrayFromScorecard {
-            pickerData.append(ix.text!)
+            //If there is no name, we need to put a filler
+            if ix.text == "" {
+                pickerData.append("Player \(ix.tag)")
+            }
+            //Else, fill in the name
+            else {
+                pickerData.append(ix.text!)
+            }
         }
     }
     
