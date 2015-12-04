@@ -19,6 +19,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         
+        switch UIDevice().type {
+        case .iPhone4:
+            fallthrough
+        case .iPhone5:
+            print("No TouchID sensor")
+        case .iPhone5S:
+            fallthrough
+        case .iPhone6:
+            fallthrough
+        case .iPhone6plus:
+            fallthrough
+        case .iPhone6S:
+            fallthrough
+        case .iPhone6Splus:
+            print("Put your thumb on the " +
+                UIDevice().type.rawValue + " sensor thingy")
+        default:
+            print("I am not equipped to handle this device")
+        }
+        
+        // We are old school and hard code the text field sizes
+        correctLayoutSize()
+        
+        
         // Set Delegates
         setTextFieldDelegates()
         
@@ -32,11 +56,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /* MAKE SURE TO UNREGISTER FROM THESE
            EVENTS WHEN TRANSISTIONING FROM THIS
            VIEW CONTROLLER
+        
+            HOWEVER, THERE IS NO KEYBOARD IN THE
+            OTHER VIEW IN THIS APP
         */
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+        
+        
         
         
         
@@ -126,13 +155,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func populatePlayerNames() {
-        p1Name.text = "Jason"
-        p2Name.text = "Erin"
-        p3Name.text = "Evan"
-        p4Name.text = "Amber"
-        p5Name.text = "Nate"
-        p6Name.text = "Jackie"
-        p7Name.text = "Marshall"
+        p1Name.text = ""
+        p2Name.text = ""
+        p3Name.text = ""
+        p4Name.text = ""
+        p5Name.text = ""
+        p6Name.text = ""
+        p7Name.text = ""
+    }
+    
+    
+    func correctLayoutSize() {
+        
+        print("Trying to change frame size")
+        
+        var frameRect : CGRect = UITextField().frame
+        frameRect.size.width = 70
+        p1MilScore.frame = frameRect
+        
+        
     }
     
     // MARK: Actions
@@ -209,9 +250,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
 
+    // ****DISABLED***
+        
         // Check if any invalid (non-Integer) numbers/characters are present 
         // (Except in nameField)
+    
         
+        /*
         for arr in scoresheet {
             for ix in arr {
                 // Scores to enter are 45 wide, but if it is empty we don't care to check it
@@ -223,18 +268,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     else {
                         print("There's an issue")
                         
+                        // if they clear the invalid scores
+                        var cleared = false
+                        
                         // Pop up to notify user of error
-                        let alert = UIAlertController(title: "Invalid Score", message: "Score values must be integers", preferredStyle: UIAlertControllerStyle.Alert)
-                        let alertAction = UIAlertAction(title: "Fix it", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in }
-                        alert.addAction(alertAction)
+                        let alert = UIAlertController(title: "Invalid Score", message: "One or more scores are invalid.", preferredStyle: UIAlertControllerStyle.Alert)
+                        let fixAction = UIAlertAction(title: "Fix it", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in }
+                        let clearAction = UIAlertAction(title: "Clear issues", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
+                            
+                            self.clearInvalidScores()
+                            cleared = true
+                        
+                        })
+                        
+                        //order matters here
+                        alert.addAction(clearAction)
+                        alert.addAction(fixAction)
+                        
+                        alert.preferredAction = fixAction
                         presentViewController(alert, animated: true) { () -> Void in }
                         
-                        return false
-                        
+                        if !cleared {
+                            return false
+                        }
                     }
                 }
             }
-        }
+        }*/
+        
+        
         
         // Hide the keyboard.
         textField.resignFirstResponder()
@@ -254,6 +316,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    
+    
     // MARK: Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -266,6 +330,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         
     }
+    
     
     @IBAction func unwindScoreboard(sender: UIStoryboardSegue) {
         
@@ -297,7 +362,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    // MARK: Calculate Scores
+    // MARK: Function
+    
+    func clearInvalidScores () {
+        
+        for arr in scoresheet {
+            for ix in arr {
+                // Scores to enter are 45 wide, but if it is empty we don't care to check it
+                if Int(ix.frame.width) == self.scoresToAddWidth && ix.text != "" {
+                    // If we can cast the text to an Integer, we are happy (do nothing)
+                    if let _ = Int(ix.text!) {
+                        //Do nothing
+                    }
+                    else {
+                        ix.text = ""
+                    }
+                }
+            }
+        }
+    }
     
     func refreshScores() {
         
@@ -600,3 +683,103 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
 }
 
+
+
+
+// 1. Declare outside class definition (or in its own file).
+// 2. UIKit must be included in file where this code is added.
+// 3. Extends UIDevice class, thus is available anywhere in app.
+//
+// Usage example:
+//
+//    if UIDevice().type == .simulator {
+//       print("You're running on the simulator... boring!")
+//    } else {
+//       print("Wow! Running on a \(UIDevice().type.rawValue)")
+//    }
+
+public enum Model : String {
+    case simulator = "simulator/sandbox",
+    iPod1          = "iPod 1",
+    iPod2          = "iPod 2",
+    iPod3          = "iPod 3",
+    iPod4          = "iPod 4",
+    iPod5          = "iPod 5",
+    iPad2          = "iPad 2",
+    iPad3          = "iPad 3",
+    iPad4          = "iPad 4",
+    iPhone4        = "iPhone 4",
+    iPhone4S       = "iPhone 4S",
+    iPhone5        = "iPhone 5",
+    iPhone5S       = "iPhone 5S",
+    iPhone5C       = "iPhone 5C",
+    iPadMini1      = "iPad Mini 1",
+    iPadMini2      = "iPad Mini 2",
+    iPadMini3      = "iPad Mini 3",
+    iPadAir1       = "iPad Air 1",
+    iPadAir2       = "iPad Air 2",
+    iPhone6        = "iPhone 6",
+    iPhone6plus    = "iPhone 6 Plus",
+    iPhone6S       = "iPhone 6S",
+    iPhone6Splus   = "iPhone 6S Plus",
+    unrecognized   = "?unrecognized?"
+}
+
+public extension UIDevice {
+    public var type: Model {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let modelCode = withUnsafeMutablePointer(&systemInfo.machine) {
+            ptr in String.fromCString(UnsafePointer<CChar>(ptr))
+        }
+        var modelMap : [ String : Model ] = [
+            "i386"      : .simulator,
+            "x86_64"    : .simulator,
+            "iPod1,1"   : .iPod1,
+            "iPod2,1"   : .iPod2,
+            "iPod3,1"   : .iPod3,
+            "iPod4,1"   : .iPod4,
+            "iPod5,1"   : .iPod5,
+            "iPad2,1"   : .iPad2,
+            "iPad2,2"   : .iPad2,
+            "iPad2,3"   : .iPad2,
+            "iPad2,4"   : .iPad2,
+            "iPad2,5"   : .iPadMini1,
+            "iPad2,6"   : .iPadMini1,
+            "iPad2,7"   : .iPadMini1,
+            "iPhone3,1" : .iPhone4,
+            "iPhone3,2" : .iPhone4,
+            "iPhone3,3" : .iPhone4,
+            "iPhone4,1" : .iPhone4S,
+            "iPhone5,1" : .iPhone5,
+            "iPhone5,2" : .iPhone5,
+            "iPhone5,3" : .iPhone5C,
+            "iPhone5,4" : .iPhone5C,
+            "iPad3,1"   : .iPad3,
+            "iPad3,2"   : .iPad3,
+            "iPad3,3"   : .iPad3,
+            "iPad3,4"   : .iPad4,
+            "iPad3,5"   : .iPad4,
+            "iPad3,6"   : .iPad4,
+            "iPhone6,1" : .iPhone5S,
+            "iPhone6,2" : .iPhone5S,
+            "iPad4,1"   : .iPadAir1,
+            "iPad4,2"   : .iPadAir2,
+            "iPad4,4"   : .iPadMini2,
+            "iPad4,5"   : .iPadMini2,
+            "iPad4,6"   : .iPadMini2,
+            "iPad4,7"   : .iPadMini3,
+            "iPad4,8"   : .iPadMini3,
+            "iPad4,9"   : .iPadMini3,
+            "iPhone7,1" : .iPhone6plus,
+            "iPhone7,2" : .iPhone6,
+            "iPhone8,1" : .iPhone6S,
+            "iPhone8,2" : .iPhone6Splus
+        ]
+        
+        if let model = modelMap[String.fromCString(modelCode!)!] {
+            return model
+        }
+        return Model.unrecognized
+    }
+}
