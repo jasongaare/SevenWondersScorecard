@@ -20,11 +20,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         // Once the view loads, we know how wide our frames are for scoring
         scoresToAddWidth = Int(p1MilScore.frame.width)
+        scoreSwitch.transform = CGAffineTransformMakeScale(0.75, 0.75)
         
         // Set Delegates
         setTextFieldDelegates()
         
         // Initialize final visual elements
+        mainScrollView.layer.cornerRadius = 11
         setBackgroundColors()
         populatePlayerNames()
         refreshScores()
