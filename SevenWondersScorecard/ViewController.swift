@@ -20,13 +20,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         // Once the view loads, we know how wide our frames are for scoring
         scoresToAddWidth = Int(p1MilScore.frame.width)
-        scoreSwitch.transform = CGAffineTransformMakeScale(0.88, 0.88)
+        scoreSwitch.transform = CGAffineTransformMakeScale(0.85, 0.85)
         
         // Set Delegates
         setTextFieldDelegates()
         
         // Initialize final visual elements
-        mainScrollView.layer.cornerRadius = 11
+        mainScrollView.layer.cornerRadius = 10
         setBackgroundColors()
         populatePlayerNames()
         refreshScores()
@@ -560,6 +560,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scoreSwitch: UISwitch!
     @IBOutlet weak var sciCalcButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var scoreCardFieldView: UIView!
     
     
     weak var activeField: UITextField?
