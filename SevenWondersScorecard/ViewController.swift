@@ -20,81 +20,51 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         // Once the view loads, we know how wide our frames are for scoring
         scoresToAddWidth = Int(p1MilScore.frame.width)
+        
+        // Shrink that switch *just a little bit*
         scoreSwitch.transform = CGAffineTransformMakeScale(0.85, 0.85)
         
         // Set Delegates
         setTextFieldDelegates()
         
         // Initialize final visual elements
-        mainScrollView.layer.cornerRadius = 10
         setBackgroundColors()
-        populatePlayerNames()
         refreshScores()
         
-        
-        
-        /* MAKE SURE TO UNREGISTER FROM THESE
-           EVENTS WHEN TRANSISTIONING FROM THIS
-           VIEW CONTROLLER
-        
-            HOWEVER, THERE IS NO KEYBOARD IN THE
-            OTHER VIEW IN THIS APP
-        */
-        
+        // This enables us to scroll to the active responder when the keyboard is showing
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
-        
-        
-        
-        
-        
-        // Made it!
-        print("Successful Load")
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: Methods to initialize the UI
-
 
     func setTextFieldDelegates() {
         
         for ix in nameArray {
             ix.delegate = self
         }
-        
         for ix in milScoreArray {
             ix.delegate = self
         }
-
         for ix in tresScoreArray {
             ix.delegate = self
         }
-
         for ix in wonderScoreArray {
             ix.delegate = self
         }
-
         for ix in civilScoreArray {
             ix.delegate = self
         }
-        
         for ix in commScoreArray {
             ix.delegate = self
         }
-
         for ix in guildScoreArray {
             ix.delegate = self
         }
-
         for ix in sciScoreArray {
             ix.delegate = self
         }
-        
     }
     
     func setBackgroundColors() {
@@ -111,56 +81,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
         for ix in milScoreArray {
             ix.backgroundColor = militaryBG
         }
-        
         for ix in tresScoreArray {
             ix.backgroundColor = treasuryBG
         }
-        
         for ix in civilScoreArray {
             ix.backgroundColor = civilBG
         }
-
         for ix in commScoreArray {
             ix.backgroundColor = commBG
         }
-
         for ix in guildScoreArray {
             ix.backgroundColor = guildBG
         }
-
         for ix in sciScoreArray {
             ix.backgroundColor = sciBG
         }
-       
-    }
-    
-    func populatePlayerNames() {
-        p1Name.text = ""
-        p2Name.text = ""
-        p3Name.text = ""
-        p4Name.text = ""
-        p5Name.text = ""
-        p6Name.text = ""
-        p7Name.text = ""
-    }
-    
-    
-    func correctLayoutSize() {
-        
-        print("Trying to change frame size")
-        
-        var frameRect : CGRect = UITextField().frame
-        frameRect.size.width = 70
-        p1MilScore.frame = frameRect
-        
-        
     }
     
     // MARK: Actions
     @IBAction func scoreSwitchClicked(sender: UISwitch) {
         
         if !scoreSwitch.on {
-            
             //when switch is turned off, clear scores
             for ix in totalScoreArray {
                 ix.text = ""
@@ -171,7 +112,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             scoreSwitch.setOn(true, animated:true)
             //when switch is turned on, calculate scores
             refreshScores()
-
         }
     }
     
@@ -196,16 +136,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // for cancel we won't do anything
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in }
             
-            
+        // Add actions to alert and show
         alert.addAction(clearAction)
         alert.addAction(cancelAction)
         alert.preferredAction = clearAction
-        
         presentViewController(alert, animated: true) { () -> Void in }
         
         
     }
-    // MARK: Keyboard Notifications
+    
+    // MARK: Keyboard Notifications (from blog)
     
     func keyboardDidShow(notification: NSNotification) {
         if let activeField = self.activeField, keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
@@ -229,55 +169,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: UITextDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
-
-    // ****DISABLED***
-        
-        // Check if any invalid (non-Integer) numbers/characters are present 
-        // (Except in nameField)
-    
-        
-        /*
-        for arr in scoresheet {
-            for ix in arr {
-                // Scores to enter are 45 wide, but if it is empty we don't care to check it
-                if Int(ix.frame.width) == self.scoresToAddWidth && ix.text != "" {
-                    // If we can cast the text to an Integer, we are happy (do nothing)
-                    if let _ = Int(ix.text!) {
-                        //Do nothing
-                    }
-                    else {
-                        print("There's an issue")
-                        
-                        // if they clear the invalid scores
-                        var cleared = false
-                        
-                        // Pop up to notify user of error
-                        let alert = UIAlertController(title: "Invalid Score", message: "One or more scores are invalid.", preferredStyle: UIAlertControllerStyle.Alert)
-                        let fixAction = UIAlertAction(title: "Fix it", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in }
-                        let clearAction = UIAlertAction(title: "Clear issues", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
-                            
-                            self.clearInvalidScores()
-                            cleared = true
-                        
-                        })
-                        
-                        //order matters here
-                        alert.addAction(clearAction)
-                        alert.addAction(fixAction)
-                        
-                        alert.preferredAction = fixAction
-                        presentViewController(alert, animated: true) { () -> Void in }
-                        
-                        if !cleared {
-                            return false
-                        }
-                    }
-                }
-            }
-        }*/
-        
-        
-        
         // Hide the keyboard.
         textField.resignFirstResponder()
         
@@ -295,26 +186,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.activeField = textField
     }
     
-    
-    
-    
     // MARK: Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         
+        // This is the only place to go
         let sciCalcView = segue.destinationViewController as! ScienceCalcViewController
         sciCalcView.self.nameArrayFromScorecard = self.nameArray
         
-        
     }
-    
     
     @IBAction func unwindScoreboard(sender: UIStoryboardSegue) {
         
-        // if we can be sure the sending view is a SciCalc then...
+        // if we can be sure the sending view is a SciCalc (which we should) then...
         if let sourceViewController = sender.sourceViewController as? ScienceCalcViewController {
             // find the player and place the calculated score in their scorebox
             switch sourceViewController.self.currentlySelected {
@@ -344,31 +228,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Function
     
-    func clearInvalidScores () {
-        
-        for arr in scoresheet {
-            for ix in arr {
-                // Scores to enter are 45 wide, but if it is empty we don't care to check it
-                if Int(ix.frame.width) == self.scoresToAddWidth && ix.text != "" {
-                    // If we can cast the text to an Integer, we are happy (do nothing)
-                    if let _ = Int(ix.text!) {
-                        //Do nothing
-                    }
-                    else {
-                        ix.text = ""
-                    }
-                }
-            }
-        }
-    }
-    
     func refreshScores() {
         
         // if they don't want the scores, then just return
         if !scoreSwitch.on {
             return
         }
-        
         
         //Calculate player 1 score
         var p1score: Int = 0
@@ -398,6 +263,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //Calculate player 2 score
         var p2score: Int = 0
+        
         //If there is an integer in the textField, add it to the score
         if let x = Int(p2MilScore.text!) {
             p2score += x
@@ -562,7 +428,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var scoreCardFieldView: UIView!
     
-    
     weak var activeField: UITextField?
     
     // All of the scoresheet
@@ -579,7 +444,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var p5Name: UITextField! {didSet {nameArray.append(p5Name); p5Name.tag = 5}}
     @IBOutlet weak var p6Name: UITextField! {didSet {nameArray.append(p6Name); p6Name.tag = 6}}
     @IBOutlet weak var p7Name: UITextField! {didSet {nameArray.append(p7Name); p7Name.tag = 7}}
-    
     
     // Military Score Column
     var milScoreArray = [UITextField]()  {didSet {scoresheet.append(milScoreArray)}}

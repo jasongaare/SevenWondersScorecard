@@ -728,7 +728,7 @@
                                         <rect key="frame" x="311" y="263" width="189" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Scientific Score Calculator">
-                                            <color key="titleColor" red="0.80183912088114162" green="0.92797111742424243" blue="0.92797111742424243" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="0kQ-wV-Sdd" kind="show" id="KfC-QF-T7h"/>
@@ -738,35 +738,35 @@
                                         <rect key="frame" x="20" y="263" width="109" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Clear All Scores">
-                                            <color key="titleColor" red="0.80183912089999998" green="0.92797111740000005" blue="0.92797111740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="clearButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vBQ-J4-aAf"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ul-PO-Tm0">
-                                        <rect key="frame" x="150" y="268" width="48" height="30"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rKi-Vy-ao9">
-                                        <rect key="frame" x="200" y="263" width="51" height="31"/>
+                                        <rect key="frame" x="236" y="262" width="51" height="31"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="scoreSwitchClicked:" destination="BYZ-38-t0r" eventType="valueChanged" id="AD2-oD-h92"/>
                                         </connections>
                                     </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total Scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ul-PO-Tm0">
+                                        <rect key="frame" x="137" y="262" width="97" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.95777089289999995" blue="0.70235793710000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="rKi-Vy-ao9" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" id="2yV-u4-yKB"/>
                                     <constraint firstItem="EHb-gw-dse" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" id="3gb-DM-t5i"/>
-                                    <constraint firstItem="bjq-Jk-tKR" firstAttribute="leading" secondItem="kRZ-dt-psL" secondAttribute="leading" id="9bg-Ep-A1b"/>
+                                    <constraint firstItem="bjq-Jk-tKR" firstAttribute="leading" secondItem="kRZ-dt-psL" secondAttribute="leading" constant="6" id="9bg-Ep-A1b"/>
                                     <constraint firstItem="rKi-Vy-ao9" firstAttribute="leading" secondItem="3ul-PO-Tm0" secondAttribute="trailing" constant="3" id="Dkc-Sl-iD6"/>
-                                    <constraint firstItem="q0g-O6-2h6" firstAttribute="trailing" secondItem="kRZ-dt-psL" secondAttribute="trailing" constant="-1" id="DqP-yn-Whi"/>
+                                    <constraint firstItem="q0g-O6-2h6" firstAttribute="trailing" secondItem="kRZ-dt-psL" secondAttribute="trailing" constant="-7" id="DqP-yn-Whi"/>
                                     <constraint firstAttribute="bottom" secondItem="q0g-O6-2h6" secondAttribute="bottom" constant="21" id="EBo-VF-bJf"/>
                                     <constraint firstAttribute="trailing" secondItem="kRZ-dt-psL" secondAttribute="trailing" id="GWi-MV-dLW"/>
                                     <constraint firstItem="EHb-gw-dse" firstAttribute="trailing" secondItem="kRZ-dt-psL" secondAttribute="trailing" id="Hfw-ch-vKw"/>
@@ -777,7 +777,7 @@
                                     <constraint firstItem="kRZ-dt-psL" firstAttribute="height" secondItem="cMI-By-Q1w" secondAttribute="height" multiplier="0.8" priority="750" id="Zc4-Kz-lsl"/>
                                     <constraint firstItem="EHb-gw-dse" firstAttribute="leading" secondItem="kRZ-dt-psL" secondAttribute="leading" id="c1u-1n-fie"/>
                                     <constraint firstItem="kRZ-dt-psL" firstAttribute="leading" secondItem="cMI-By-Q1w" secondAttribute="leading" id="gJH-26-J5n"/>
-                                    <constraint firstItem="3ul-PO-Tm0" firstAttribute="leading" secondItem="bjq-Jk-tKR" secondAttribute="trailing" constant="21" id="hww-y3-zu3"/>
+                                    <constraint firstItem="3ul-PO-Tm0" firstAttribute="leading" secondItem="bjq-Jk-tKR" secondAttribute="trailing" constant="12" id="hww-y3-zu3"/>
                                     <constraint firstItem="q0g-O6-2h6" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" id="iAC-04-Ula"/>
                                     <constraint firstItem="kRZ-dt-psL" firstAttribute="centerX" secondItem="cMI-By-Q1w" secondAttribute="centerX" id="mQ2-sU-asN"/>
                                     <constraint firstItem="3ul-PO-Tm0" firstAttribute="top" secondItem="kRZ-dt-psL" secondAttribute="bottom" id="nLe-oR-zMb"/>
@@ -786,7 +786,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.95777089289999995" blue="0.70235793710000005" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="cMI-By-Q1w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CPv-y2-Jx8"/>
@@ -888,6 +888,9 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qdk-s0-OlP">
                                 <rect key="frame" x="42" y="147" width="517" height="306"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TransparentPyramid" translatesAutoresizingMaskIntoConstraints="NO" id="Arh-oY-7nI">
+                                        <rect key="frame" x="113" y="9" width="290" height="290"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="SciWheel" translatesAutoresizingMaskIntoConstraints="NO" id="eK5-dl-aMX">
                                         <rect key="frame" x="131" y="54" width="35" height="35"/>
                                         <constraints>
@@ -895,14 +898,16 @@
                                             <constraint firstAttribute="height" constant="35" id="rMU-sy-GI5"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text=" Calculated Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgh-CB-lKL">
-                                        <rect key="frame" x="314" y="210" width="146" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" Calculated Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgh-CB-lKL">
+                                        <rect key="frame" x="296" y="196" width="146" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HU8-ZJ-IQy">
-                                        <rect key="frame" x="28" y="143" width="91" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="20" y="143" width="99" height="21"/>
+                                        <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -914,13 +919,15 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sag-vs-XhE">
-                                        <rect key="frame" x="28" y="61" width="91" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="20" y="61" width="99" height="21"/>
+                                        <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O8n-eL-u7p">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O8n-eL-u7p">
                                         <rect key="frame" x="267" y="140" width="230" height="29"/>
+                                        <color key="backgroundColor" red="1" green="0.95777089289999995" blue="0.70235793710000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="Jgm-AP-nrS"/>
                                         </constraints>
@@ -931,19 +938,23 @@
                                             <segment title="3"/>
                                             <segment title="4"/>
                                         </segments>
+                                        <color key="tintColor" red="0.18823529410000001" green="0.4431372549" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="segmentChanged:" destination="0kQ-wV-Sdd" eventType="valueChanged" id="WoN-Xy-kUA"/>
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Cards  =" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALj-gh-nmc">
-                                        <rect key="frame" x="178" y="143" width="65" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="178" y="143" width="72" height="21"/>
+                                        <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t11-EP-K5S">
-                                        <rect key="frame" x="20" y="256" width="230" height="30"/>
-                                        <state key="normal" title="Assign Score to Selected Player"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t11-EP-K5S">
+                                        <rect key="frame" x="267" y="247" width="230" height="30"/>
+                                        <state key="normal" title="Assign Score to Selected Player">
+                                            <color key="titleColor" red="0.18823529410000001" green="0.4431372549" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="xhU-9S-U7d" kind="unwind" unwindAction="unwindScoreboard:" id="QZB-Db-uCb"/>
                                         </connections>
@@ -956,13 +967,15 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Cards  =" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbg-WC-CxQ">
-                                        <rect key="frame" x="178" y="102" width="65" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="178" y="102" width="72" height="21"/>
+                                        <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tof-vq-xpO">
                                         <rect key="frame" x="267" y="58" width="230" height="29"/>
+                                        <color key="backgroundColor" red="1" green="0.95777089289999995" blue="0.70235793710000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="CDS-hp-Be0"/>
                                         </constraints>
@@ -973,33 +986,36 @@
                                             <segment title="3"/>
                                             <segment title="4"/>
                                         </segments>
+                                        <color key="tintColor" red="0.18823529410000001" green="0.4431372549" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="segmentChanged:" destination="0kQ-wV-Sdd" eventType="valueChanged" id="wrD-b2-bIz"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfb-I7-bgz">
-                                        <rect key="frame" x="359" y="256" width="138" height="30"/>
-                                        <state key="normal" title="Return to Scorecard"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfb-I7-bgz">
+                                        <rect key="frame" x="20" y="24" width="230" height="22"/>
+                                        <state key="normal" title="Return to Scorecard">
+                                            <color key="titleColor" red="0.18823529410000001" green="0.4431372549" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="returnButtonClicked:" destination="0kQ-wV-Sdd" eventType="touchUpInside" id="ZWL-J6-8wl"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scientific Score Calculator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TL6-yP-Kmj">
-                                        <rect key="frame" x="146" y="20" width="225" height="21"/>
+                                        <rect key="frame" x="267" y="24" width="230" height="21"/>
+                                        <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D1h-jY-5DG">
-                                        <rect key="frame" x="20" y="204" width="230" height="52"/>
-                                    </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Cards  =" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nen-6h-WgY">
-                                        <rect key="frame" x="178" y="61" width="65" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="178" y="61" width="72" height="21"/>
+                                        <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BcF-Kr-t9t">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BcF-Kr-t9t">
                                         <rect key="frame" x="267" y="99" width="230" height="29"/>
+                                        <color key="backgroundColor" red="1" green="0.95777089289999995" blue="0.70235793710000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="omR-Se-3sx"/>
                                         </constraints>
@@ -1010,45 +1026,48 @@
                                             <segment title="3"/>
                                             <segment title="4"/>
                                         </segments>
+                                        <color key="tintColor" red="0.18823529410000001" green="0.4431372549" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="segmentChanged:" destination="0kQ-wV-Sdd" eventType="valueChanged" id="YaV-v2-es6"/>
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esk-5r-zaK">
-                                        <rect key="frame" x="28" y="102" width="91" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="20" y="102" width="99" height="21"/>
+                                        <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uXK-Nt-1WV">
-                                        <rect key="frame" x="460" y="210" width="37" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uXK-Nt-1WV">
+                                        <rect key="frame" x="460" y="196" width="37" height="30"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDm-nJ-SID">
-                                        <rect key="frame" x="85" y="179" width="100" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D1h-jY-5DG">
+                                        <rect key="frame" x="20" y="202" width="230" height="75"/>
+                                        <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.44705882349999998" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.18823529410000001" green="0.4431372549" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select A Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJH-6t-82J">
+                                        <rect key="frame" x="78" y="182" width="115" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <color key="textColor" red="0.18823529410000001" green="0.4431372549" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.95777089289999995" blue="0.70235793710000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Yfb-I7-bgz" firstAttribute="trailing" secondItem="O8n-eL-u7p" secondAttribute="trailing" id="0Gs-75-GIg"/>
                                     <constraint firstItem="BcF-Kr-t9t" firstAttribute="leading" secondItem="Tof-vq-xpO" secondAttribute="leading" id="SzZ-uG-AT6"/>
-                                    <constraint firstItem="Yfb-I7-bgz" firstAttribute="bottom" secondItem="t11-EP-K5S" secondAttribute="bottom" id="cgI-nW-7if"/>
                                     <constraint firstItem="bbg-WC-CxQ" firstAttribute="leading" secondItem="Nen-6h-WgY" secondAttribute="leading" id="egQ-s9-38J"/>
                                     <constraint firstItem="ALj-gh-nmc" firstAttribute="leading" secondItem="Nen-6h-WgY" secondAttribute="leading" id="h44-tl-Sqo"/>
-                                    <constraint firstItem="uXK-Nt-1WV" firstAttribute="leading" secondItem="kgh-CB-lKL" secondAttribute="trailing" id="k6B-3J-MoS"/>
-                                    <constraint firstItem="uXK-Nt-1WV" firstAttribute="trailing" secondItem="O8n-eL-u7p" secondAttribute="trailing" id="kuZ-rB-1HA"/>
                                     <constraint firstItem="O8n-eL-u7p" firstAttribute="leading" secondItem="Tof-vq-xpO" secondAttribute="leading" id="zuz-YS-wzl"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.95777089292843143" blue="0.70235793711394168" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Qdk-s0-OlP" firstAttribute="centerY" secondItem="u55-Py-WwM" secondAttribute="centerY" id="Ei0-cX-mXA"/>
                             <constraint firstItem="Qdk-s0-OlP" firstAttribute="centerX" secondItem="u55-Py-WwM" secondAttribute="centerX" id="yJ0-Pf-ptz"/>
@@ -1080,5 +1099,6 @@
         <image name="SciCompass" width="90" height="90"/>
         <image name="SciTablet" width="180" height="180"/>
         <image name="SciWheel" width="180" height="180"/>
+        <image name="TransparentPyramid" width="588" height="588"/>
     </resources>
 </document>

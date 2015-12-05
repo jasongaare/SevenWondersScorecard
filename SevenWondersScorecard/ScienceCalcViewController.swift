@@ -32,6 +32,9 @@ class ScienceCalcViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.namePicker.delegate = self
         self.namePicker.dataSource = self
         
+        namePicker.layer.borderColor = UIColor.blackColor().CGColor
+        namePicker.layer.borderWidth = 1
+        
         calcScore()
         populateNamePicker()
         
