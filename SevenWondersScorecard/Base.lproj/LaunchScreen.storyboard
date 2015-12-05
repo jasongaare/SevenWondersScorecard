@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -21,7 +22,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Launch" translatesAutoresizingMaskIntoConstraints="NO" id="sxM-lr-0zZ">
                                 <rect key="frame" x="92" y="104" width="471" height="319"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="sxM-lr-0zZ" secondAttribute="height" multiplier="471:319" id="85b-XN-miq"/>
+                                    <constraint firstAttribute="width" secondItem="sxM-lr-0zZ" secondAttribute="height" multiplier="471:319" id="mao-8T-hOs"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -30,6 +31,7 @@
                         <constraints>
                             <constraint firstItem="sxM-lr-0zZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="j3Z-VW-tEX"/>
                             <constraint firstItem="sxM-lr-0zZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="syE-ga-J2P"/>
+                            <constraint firstItem="sxM-lr-0zZ" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.75" id="zEh-Sj-zCy"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -20,6 +20,8 @@ class ScienceCalcViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var assignScore: UIButton!
     @IBOutlet weak var returnButton: UIButton!
     
+    @IBOutlet weak var containerView: UIView!
+    
     var pickerData : [String] = [String]()
     var currentlySelected = 0
     
@@ -34,6 +36,8 @@ class ScienceCalcViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
         namePicker.layer.borderColor = UIColor.blackColor().CGColor
         namePicker.layer.borderWidth = 1
+        
+        containerView.layer.cornerRadius = 9
         
         calcScore()
         populateNamePicker()
