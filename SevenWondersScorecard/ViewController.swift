@@ -10,16 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    // MARK: Constants
-    var scoresToAddWidth : Int = 0
-    
     // MARK: Standard Fuctions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Once the view loads, we know how wide our frames are for scoring
-        scoresToAddWidth = Int(p1MilScore.frame.width)
         
         // Shrink that switch *just a little bit*
         scoreSwitch.transform = CGAffineTransformMakeScale(0.85, 0.85)
@@ -28,6 +22,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         setTextFieldDelegates()
         
         // Initialize final visual elements
+        
+        // Black boarder on total score fields
+        for ix in totalScoreArray {
+            ix.layer.borderColor = UIColor.blackColor().CGColor
+            ix.layer.borderWidth = 1
+        }
+        
+        
         setBackgroundColors()
         refreshScores()
         
@@ -72,6 +74,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //Declare desired colors
         let militaryBG = UIColor(red: 0.789, green: 0.293, blue: 0.293, alpha: 0.8)
         let treasuryBG = UIColor(red: 0.926, green: 0.832, blue: 0.164, alpha: 0.35)
+        let wonderBG = UIColor(red: 0.85, green: 0.85, blue: 0.7, alpha: 0.5)
         let civilBG = UIColor(red: 0, green: 0.086, blue: 1, alpha: 0.35)
         let commBG = UIColor(red: 0.992, green: 0.51, blue: 0.055, alpha: 0.35)
         let guildBG = UIColor(red: 0.224, green: 0.067, blue: 0.365, alpha: 0.35)
@@ -83,6 +86,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         for ix in tresScoreArray {
             ix.backgroundColor = treasuryBG
+        }
+        for ix in wonderScoreArray {
+            ix.backgroundColor = wonderBG
         }
         for ix in civilScoreArray {
             ix.backgroundColor = civilBG
@@ -122,15 +128,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
    
         // if they want to clear
         let clearAction = UIAlertAction(title: "Clear", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+
             // function code for clear
-            for arr in self.scoresheet {
-                for ix in arr {
-                    if Int(ix.frame.width) == self.scoresToAddWidth {
-                        ix.text = ""
-                    }
-                }
+            for ix in self.milScoreArray {
+                ix.text = ""
             }
-            self.refreshScores()
+            for ix in self.tresScoreArray {
+                ix.text = ""
+            }
+            for ix in self.wonderScoreArray {
+                ix.text = ""
+            }
+            for ix in self.civilScoreArray {
+                ix.text = ""
+            }
+            for ix in self.commScoreArray {
+                ix.text = ""
+            }
+            for ix in self.guildScoreArray {
+                ix.text = ""
+            }
+            for ix in self.sciScoreArray {
+                ix.text = ""
+            }
+            for ix in self.totalScoreArray {
+                ix.text = ""
+            }
+        
         }
         
         // for cancel we won't do anything
@@ -235,6 +259,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        // Clear the scores
+        p1Total.text = ""
+        p2Total.text = ""
+        p3Total.text = ""
+        p4Total.text = ""
+        p5Total.text = ""
+        p6Total.text = ""
+        p7Total.text = ""
+        
         //Calculate player 1 score
         var p1score: Int = 0
         //If there is an integer in the textField, add it to the score
@@ -259,7 +292,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let x = Int(p1SciScore.text!) {
             p1score += x
         }
-        p1Total.text = "\(p1score)"
+        
+        if p1score != 0 {
+            p1Total.text = "\(p1score)"
+        }
+        
         
         //Calculate player 2 score
         var p2score: Int = 0
@@ -286,7 +323,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let x = Int(p2SciScore.text!) {
             p2score += x
         }
-        p2Total.text = "\(p2score)"
+
+        if p2score != 0 {
+            p2Total.text = "\(p2score)"
+        }
         
         //Calculate player 3 score
         var p3score: Int = 0
@@ -312,7 +352,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let x = Int(p3SciScore.text!) {
             p3score += x
         }
-        p3Total.text = "\(p3score)"
+
+        if p3score != 0 {
+            p3Total.text = "\(p3score)"
+        }
         
         //Calculate player 4 score
         var p4score: Int = 0
@@ -338,7 +381,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let x = Int(p4SciScore.text!) {
             p4score += x
         }
-        p4Total.text = "\(p4score)"
+
+        if p4score != 0 {
+            p4Total.text = "\(p4score)"
+        }
         
         //Calculate player 5 score
         var p5score: Int = 0
@@ -364,7 +410,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let x = Int(p5SciScore.text!) {
             p5score += x
         }
-        p5Total.text = "\(p5score)"
+
+        if p5score != 0 {
+            p5Total.text = "\(p5score)"
+        }
         
         //Calculate player 6 score
         var p6score: Int = 0
@@ -390,7 +439,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let x = Int(p6SciScore.text!) {
             p6score += x
         }
-        p6Total.text = "\(p6score)"
+
+        if p6score != 0 {
+            p6Total.text = "\(p6score)"
+        }
         
         //Calculate player 7 score
         var p7score: Int = 0
@@ -416,7 +468,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let x = Int(p7SciScore.text!) {
             p7score += x
         }
-        p7Total.text = "\(p7score)"
+
+        if p7score != 0 {
+            p7Total.text = "\(p7score)"
+        }
     }
     
     
