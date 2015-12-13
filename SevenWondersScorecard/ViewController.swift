@@ -123,38 +123,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func clearButtonPressed(sender: UIButton) {
         
+        
         // Pop up to confirm clear
         let alert = UIAlertController(title: "Clear Scores", message: "Are you sure you want to clear all scores?", preferredStyle: UIAlertControllerStyle.Alert)
    
         // if they want to clear
         let clearAction = UIAlertAction(title: "Clear", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-
-            // function code for clear
-            for ix in self.milScoreArray {
-                ix.text = ""
-            }
-            for ix in self.tresScoreArray {
-                ix.text = ""
-            }
-            for ix in self.wonderScoreArray {
-                ix.text = ""
-            }
-            for ix in self.civilScoreArray {
-                ix.text = ""
-            }
-            for ix in self.commScoreArray {
-                ix.text = ""
-            }
-            for ix in self.guildScoreArray {
-                ix.text = ""
-            }
-            for ix in self.sciScoreArray {
-                ix.text = ""
-            }
-            for ix in self.totalScoreArray {
-                ix.text = ""
-            }
-        
+            self.self.clearScores()
         }
         
         // for cancel we won't do anything
@@ -165,6 +140,62 @@ class ViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(cancelAction)
         alert.preferredAction = clearAction
         presentViewController(alert, animated: true) { () -> Void in }
+        
+    }
+    
+    func clearScores () {
+        
+        
+        // Ask if they want to clear the names, too
+        let alert = UIAlertController(title: "Clear Player Names", message: "Would you like to clear the player names as well?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        // if they want to clear
+        let clearAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+
+            for ix in self.nameArray {
+                ix.text = ""
+            }
+            
+        }
+        
+        // for cancel we won't do anything
+        let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in }
+        
+        // Add actions to alert and show
+        alert.addAction(clearAction)
+        alert.addAction(cancelAction)
+        alert.preferredAction = clearAction
+        presentViewController(alert, animated: true) { () -> Void in }
+        
+        
+        // function code for clear
+        for ix in self.milScoreArray {
+            ix.text = ""
+        }
+        for ix in self.tresScoreArray {
+            ix.text = ""
+        }
+        for ix in self.wonderScoreArray {
+            ix.text = ""
+        }
+        for ix in self.civilScoreArray {
+            ix.text = ""
+        }
+        for ix in self.commScoreArray {
+            ix.text = ""
+        }
+        for ix in self.guildScoreArray {
+            ix.text = ""
+        }
+        for ix in self.sciScoreArray {
+            ix.text = ""
+        }
+        for ix in self.totalScoreArray {
+            ix.text = ""
+        }
+        
+        
+        
         
         
     }
